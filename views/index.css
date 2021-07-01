@@ -2,4 +2,5 @@ html, body{
     background-image: url(images/index.jpg);
     background-attachment: fixed;
     color: antiquewhite;
+    padding-top: 65px;
 }

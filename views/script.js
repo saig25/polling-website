@@ -112,8 +112,6 @@
                     div.id = userkey
                     document.getElementById('polls').appendChild(div)
                     var h = document.createElement('h3')
-                    h.innerHTML = "Result"
-                    document.getElementById(userkey).appendChild(h)
                     var h1 = document.createElement('h4')
                     h1.innerHTML = q1
                     document.getElementById(userkey).appendChild(h1)
