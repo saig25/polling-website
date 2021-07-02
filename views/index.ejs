@@ -9,13 +9,25 @@
     <nav class="navbar fixed-top bg-dark">
         <h1>Opinion poll</h1>
         <h2>Hi <%-person.name%></h2>
-        <a href="/login">Logout</a>
+        <div class="links">
+            <a href="/login">Logout</a>
+        </div>
     </nav>
-    <h2>Have a Question?</h2>
-    Question <input id="question" type="text" required> <br>
-    <input id="userid" type="hidden" value= <%-person.id%>> <br>
-    Options  <input id="options" type="text" placeholder="option A,option B,option C" required> <br>
-    <button id="submit">Submit</button>
+    <div class="card rounded">
+        <div class="card-header text-center">Have a Question?</div>
+        <div>
+            <h3>Question</h3>
+        </div>
+        <input id="question" type="text"  required> <br>
+        <input id="userid" type="hidden" value= <%-person.id%>> <br>
+        <div>
+            <h3>Options</h3>
+        </div>
+        <input id="options" type="text" placeholder="option A,option B,option C" required> <br>
+        <div>
+            <button id="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </div>
     <h2>Polls:</h2>
     <div id="polls">
         
