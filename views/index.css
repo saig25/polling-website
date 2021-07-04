@@ -3,16 +3,25 @@ html, body{
     background-attachment: fixed;
     color: antiquewhite;
     padding-top: 65px;
+        
 }
 
 .card{
     color: black;
+    background-color: beige;
+    margin-bottom: 10px;
+    
+    
     
 }
 
 input[type=text] {
     width: 100%;
     
+}
+
+input[type=button]{
+    width: 10%
 }
     
 .links a{
@@ -22,3 +31,4 @@ color:rgb(241, 49, 15);
 .links a:hover{
     color: cornsilk;
 }
+

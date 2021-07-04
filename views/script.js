@@ -109,11 +109,20 @@
                         })
                     })
                     var div = document.createElement('div')
+                    div.classList.add('card');
+                    div.classList.add('d-flex')
+
                     div.id = userkey
                     document.getElementById('polls').appendChild(div)
-                    var h = document.createElement('h3')
                     var h1 = document.createElement('h4')
-                    h1.innerHTML = q1
+                    var q2 = q1
+                    if (q2.slice(-1) === "?"){
+                        h1.innerHTML = q2
+                    }
+                    else{
+                        
+                        h1.innerHTML = q2.concat("?")
+                    }
                     document.getElementById(userkey).appendChild(h1)
                     count=0
                     b1.forEach((option) =>{
@@ -122,9 +131,6 @@
                         option1.innerHTML = b1[count] + ": " + a1[count] + "%"
                         document.getElementById(userkey).appendChild(option1)
                         count=count+1
-                        linebreak = document.createElement('br')
-                        document.getElementById(userkey).appendChild(linebreak)
-
 
                     })
                     
@@ -133,14 +139,19 @@
                 ref.child(userkey+"/"+"p").once('value', (snapshot1)=>{
                         question1=snapshot1.val()
                         var div = document.createElement('div')
+                        div.classList.add('card')
+                        div.classList.add('d-flex')
                         div.id = userkey
-                        // div.classList.add("container mt-sm-5 my-1")
                         document.getElementById('polls').appendChild(div)
-                        var text = document.createElement('h2');
-                        text.innerHTML = question1.question
-                        // text.classList.add("question ml-sm-5 pl-sm-5 pt-2")
-                        // text.classList.add("py-2 h5")
-
+                        var text = document.createElement('h4');
+                        var q2 = question1.question
+                        if (q2.slice(-1) === "?"){
+                            text.innerHTML = q2
+                        }
+                        else{
+                            
+                            text.innerHTML = q2.concat("?")
+                        }
                         document.getElementById(userkey).appendChild(text);
                         arr = Object.keys(question1)
                         var index = arr.indexOf('question');
@@ -152,26 +163,27 @@
                         arr.splice(index, 1);
                         }
                         arr.forEach((count) =>{
+                            var div2 = document.createElement('div')
                             var btn = document.createElement("input");
                             btn.type = "radio";
                             btn.name= userkey
                             btn.value = count
-                            // btn.classList.add("ml-md-3 ml-sm-3 pl-md-5 pt-sm-0 pt-3")
-                            // btn.classList.add('checkmark')
-                            document.getElementById(userkey).appendChild(btn);
+                            document.getElementById(userkey).appendChild(div2);
                             var lab = document.createElement('label')
                             lab.innerHTML=count
-                            // lab.classList.add('options')
                             document.getElementById(userkey).appendChild(lab);
-                            linebreak = document.createElement('br')
-                            document.getElementById(userkey).appendChild(linebreak)
-                            
+                            div2.appendChild(btn)
+                            div2.appendChild(lab)
+
+   
                         })
                         var btn1 = document.createElement('input')
                         btn1.type = 'button'
                         btn1.value = 'Vote'
                         btn1.id = userkey
                         btn1.setAttribute("onClick","submitvote()");
+                        btn1.classList.add('btn')
+                        btn1.classList.add('btn-primary')
                         document.getElementById(userkey).appendChild(btn1)
                     
 
